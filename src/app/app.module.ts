@@ -8,13 +8,15 @@ import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { EmploginComponent } from './emplogin/emplogin.component';
 import { ContactComponent } from './contact/contact.component';
 import { IndexComponent } from './index/index.component';
+import { RegisterComponent } from './register/register.component';
 
 const appRoutes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'About', component: AboutComponent  },
   { path: 'AdminLogin', component: AdminloginComponent },
   { path: 'EmployeeLogin', component: EmploginComponent },
-  { path: 'Contact', component: ContactComponent}
+  { path: 'Contact', component: ContactComponent},
+  { path: 'r',component: RegisterComponent}
   ];
 
 @NgModule({
@@ -24,7 +26,8 @@ const appRoutes: Routes = [
     AdminloginComponent,
     EmploginComponent,
     ContactComponent,
-    IndexComponent
+    IndexComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
