@@ -9,6 +9,12 @@ import { EmploginComponent } from './emplogin/emplogin.component';
 import { ContactComponent } from './contact/contact.component';
 import { IndexComponent } from './index/index.component';
 import { RegisterComponent } from './register/register.component';
+import { ViewEmpComponent } from './view-emp/view-emp.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { EditEmpComponent } from './edit-emp/edit-emp.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGaurdService } from './service/auth-gaurd.service';
 
 const appRoutes: Routes = [
   { path: '', component: IndexComponent },
@@ -16,7 +22,11 @@ const appRoutes: Routes = [
   { path: 'AdminLogin', component: AdminloginComponent },
   { path: 'EmployeeLogin', component: EmploginComponent },
   { path: 'Contact', component: ContactComponent},
-  { path: 'r',component: RegisterComponent}
+  { path: 'r',component: RegisterComponent,canActivate:[AuthGaurdService]},
+  { path: 'viewemp',component: ViewEmpComponent,canActivate:[AuthGaurdService]},
+  { path: 'editEmp',component: EditEmpComponent,canActivate:[AuthGaurdService]},
+  { path: 'editEmp/:id',component: EditEmpComponent,canActivate:[AuthGaurdService]},
+  { path: 'logout',component: LogoutComponent,canActivate:[AuthGaurdService]}
   ];
 
 @NgModule({
@@ -27,11 +37,16 @@ const appRoutes: Routes = [
     EmploginComponent,
     ContactComponent,
     IndexComponent,
-    RegisterComponent
+    RegisterComponent,
+    ViewEmpComponent,
+    EditEmpComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
