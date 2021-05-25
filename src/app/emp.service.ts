@@ -29,9 +29,9 @@ export class EmpService {
     }
 
     public loginvalidate(username:any,password:any)
-  {
-    return this._http.post(`${this.basePath}/loginvalidate/${username}/${password}`,{responseType:"text"});
-  }
+    {
+      return this._http.post("http://localhost:8090/loginvalidate"+ "/"+ username + "/" + password ,{username,password},{responseType:"text"})
+    }
 
 
 }

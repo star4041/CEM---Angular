@@ -9,7 +9,7 @@ import { EmpService } from '../emp.service';
 })
 export class EmploginComponent implements OnInit{
 
-  res:any;
+  res:string;
   sysuser:string="";
   sysUser:string="";
   sysPass:string="";
@@ -23,16 +23,17 @@ export class EmploginComponent implements OnInit{
     let response=this.service.loginvalidate(username,password);
     response.subscribe(data=>
       {  
+        console.log(data);
         this.res= data;
         console.log(this.res);
         this.sysuser=username;
         
       if(this.res=="Success"){
           this.router.navigate(['About']);
-          sessionStorage.setItem("username",this.sysuser);
+          sessionStorage.setItem("Username",this.sysuser);
          }
          else{
-          this.router.navigate(['EmployeeLogin']);
+          this.router.navigate(['']);
           alert("Invalid username and password");
          }
        
