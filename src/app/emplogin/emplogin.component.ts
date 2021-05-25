@@ -30,10 +30,10 @@ export class EmploginComponent implements OnInit{
         
       if(this.res=="Success"){
           this.router.navigate(['About']);
-          sessionStorage.setItem("Username",this.sysuser);
+          sessionStorage.setItem("username",this.sysuser);
          }
          else{
-          this.router.navigate(['']);
+          this.router.navigate(['EmployeeLogin']);
           alert("Invalid username and password");
          }
        
