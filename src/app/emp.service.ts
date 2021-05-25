@@ -27,4 +27,11 @@ export class EmpService {
     removeEmp(id: number): Observable<Employee> {
       return this._http.delete<Employee>(`${this.basePath}/DeleteEmployeeById/${id}`);
     }
+
+    public loginvalidate(username:any,password:any)
+  {
+    return this._http.post(`${this.basePath}/loginvalidate/${username}/${password}`,{responseType:"text"});
+  }
+
+
 }
