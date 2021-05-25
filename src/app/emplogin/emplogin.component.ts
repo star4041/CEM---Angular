@@ -29,7 +29,7 @@ export class EmploginComponent implements OnInit{
         this.sysuser=username;
         
       if(this.res=="Success"){
-          this.router.navigate(['About']);
+          this.router.navigate(['EmpDash']);
           sessionStorage.setItem("username",this.sysuser);
          }
          else{

@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { EditEmpComponent } from './edit-emp/edit-emp.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGaurdService } from './service/auth-gaurd.service';
+import { EmpDashComponent } from './emp-dash/emp-dash.component';
 
 const appRoutes: Routes = [
   { path: '', component: IndexComponent },
@@ -26,7 +27,9 @@ const appRoutes: Routes = [
   { path: 'viewemp',component: ViewEmpComponent,canActivate:[AuthGaurdService]},
   { path: 'editEmp',component: EditEmpComponent,canActivate:[AuthGaurdService]},
   { path: 'editEmp/:id',component: EditEmpComponent,canActivate:[AuthGaurdService]},
-  { path: 'logout',component: LogoutComponent,canActivate:[AuthGaurdService]}
+  { path: 'logout',component: LogoutComponent,canActivate:[AuthGaurdService]},
+  { path: 'EmpDash',component: EmpDashComponent,canActivate:[AuthGaurdService]}
+  
   ];
 
 @NgModule({
@@ -40,7 +43,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     ViewEmpComponent,
     EditEmpComponent,
-    LogoutComponent
+    LogoutComponent,
+    EmpDashComponent
   ],
   imports: [
     BrowserModule,

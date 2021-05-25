@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Employee } from './employee';
+import { Contact } from "./contact";
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,14 @@ export class EmpService {
     public loginvalidate(username:any,password:any)
     {
       return this._http.post("http://localhost:8090/loginvalidate"+ "/"+ username + "/" + password ,{username,password},{responseType:"text"})
+    }
+
+    fetchContact():Observable<Contact[]> {
+      return this._http.get<Contact[]>(`${this.basePath}/ShowContact`);
+    }
+    
+    contactAdd(contact: Contact): Observable<any> {
+      return this._http.post(`${this.basePath}/AddContact`, contact);
     }
 
 

@@ -77,22 +77,22 @@ background: linear-gradient(to right, #F27121, #E94057, #8A2387); /* W3C, IE 10+
                     <form class="row g-3">
                         <div class="col-sm-6">
                             <label for="inputEmail4" class="form-label">Emp ID</label>
-                            <input type="text" class="form-control" id="inputEmail4" name="name">
+                            <input type="text" class="form-control" required [(ngModel)]="contact.empid" id="inputEmail4" name="empid">
                           </div>
                           <div class="col-md-6">
                             <label for="inputPassword4" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="inputPassword4" name="email">
+                            <input type="text" class="form-control" required [(ngModel)]="contact.name" id="inputPassword4" name="name">
                           </div>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Email </label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                            <input type="email" class="form-control" required [(ngModel)]="contact.email" name="email" id="exampleFormControlInput1" placeholder="name@example.com">
                           </div>
                           <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" required name="message" [(ngModel)]="contact.message" rows="3"></textarea>
                           </div>  
                         <div class="col-12 ">
-                          <button type="submit" class="btn btn-primary">Send</button>
+                          <button type="submit" class="btn btn-primary" (click)="sendContact()">Send</button>
                         </div>
                       </form>
                   </div>
